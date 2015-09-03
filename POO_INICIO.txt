@@ -1,0 +1,101 @@
+<?php
+
+ class Coche{
+    
+   public $ruedas;
+   public $color;
+   public $año;
+   public $dueño;
+   protected $data;
+
+   function __construct($rueda,$color,$año,$dueño){
+      $this->ruedas=$rueda;
+      $this->color=$color;
+      $this->año=$año;
+      $this->dueño=$dueño;
+      $this->resolveDatos($this->ruedas,$this->color,$this->año,$this->dueño);
+   }
+
+
+   public function resolveDatos($ruedas,$color,$año,$dueño){
+     $this->data=explode(" ",$ruedas." ".$color." ".$año." ".$dueño);
+   }
+
+   public function getDatos(){
+   	 return $this->data;
+   }
+
+   public function getColor(){
+   	 return $this->color;
+   }
+
+   public function getAno(){
+     return $this->año;
+   }
+
+   public function getDueno(){
+     return $this->dueño;
+   }
+
+   public function getRuedas(){
+     return $this->ruedas;
+   }
+
+
+ }
+
+
+ $coche1=new Coche(1,'azul','1991',"Jorge");
+ //$coche1->getDatos();
+
+ $coche2=new Coche(2,'verde','2015','walter');
+ //$coche2->getDatos();
+
+
+ $coche3=new Coche(3,'azul','1991',"Claudia");
+ //$coche3->getDatos();
+
+ $coche4=new Coche(4,'verde','2015','juana');
+ //$coche4->getDatos();
+
+ //$arreglo=$coche1->getDatos()[0];
+ //$arreglo[1]=$coche2->getDatos();
+
+$con=0;
+$obj=$coche1->dueño;
+echo "<script>alert('$obj')</script>";
+
+
+$arreglo=[$coche1->getRuedas(),
+	            $coche2->getAno(),
+	            $coche3->getDueno(),
+	            $coche4->getColor()];
+
+
+   foreach ($arreglo as $key => $value) {
+   	      echo $key."=>".$value."<br>";
+   }
+
+            
+  /*foreach ($arreglo as $value) {
+  	   
+      foreach ($value as $value2) {
+      	  $con++;
+      	  if($con==1){
+           echo "Coche=>".$value2."=";
+      	  }
+         echo $value2;
+        }  
+        
+        echo "<br>";
+        $con=0;
+  }*/
+   
+  
+
+ 
+ //exit($arreglo[0][1]);
+   /*for($i=0;$i<count($coche1->getDatos());$i++){
+        echo $coche1->getDatos()[$i]. "<br>";
+
+   }*/
